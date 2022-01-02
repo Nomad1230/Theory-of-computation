@@ -1,0 +1,33 @@
+{
+    "type": "bubble",
+    "body": {
+      "type": "box",
+      "layout": "vertical",
+      "contents": [
+        {
+          "type": "text",
+          "text": "你好，歡迎參加記憶卡牌遊戲!"
+        },
+        {
+          "type": "text",
+          "text": "規則:雙方可以在各自的回合挑選"
+        },
+        {
+          "type": "text",
+          "text": "兩張卡牌，卡牌數字相同即得分!"
+        },
+        {
+          "type": "text",
+          "text": "請按下遊戲開始鍵以進行遊戲"
+        },
+        {
+          "type": "button",
+          "action": {
+            "type": "message",
+            "label": "遊戲開始",
+            "text": "++++"
+          }
+        }
+      ]
+    }
+  }

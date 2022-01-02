@@ -1,5 +1,6 @@
 import os
 import sys
+import re
 
 from flask import Flask, jsonify, request, abort, send_file
 from dotenv import load_dotenv
@@ -10,11 +11,12 @@ from linebot.models import MessageEvent, TextMessage, TextSendMessage
 from fsm import TocMachine
 from utils import send_text_message
 
+
 load_dotenv()
 
 
 machine = TocMachine(
-    states=["user", "state1", "state2"],
+    states=["phase_start", "state1", "2card","suc","fail","test_end","end"],
     transitions=[
         {
             "trigger": "advance",
@@ -34,7 +36,7 @@ machine = TocMachine(
     auto_transitions=False,
     show_conditions=True,
 )
-
+print(machine.json_flex)
 app = Flask(__name__, static_url_path="")
 
 
@@ -75,7 +77,7 @@ def callback():
         line_bot_api.reply_message(
             event.reply_token, TextSendMessage(text=event.message.text)
         )
-
+        
     return "OK"
 
 
